@@ -30,7 +30,7 @@ class cFlagBase
     Entity @minimap;
     int dropper;
     bool handDropped;
-    uint droppedTime;
+    int64 droppedTime;
     cFlagBase @next;
 
     void Initialize( Entity @spawner )
