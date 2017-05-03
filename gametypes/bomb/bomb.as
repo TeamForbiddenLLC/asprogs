@@ -103,7 +103,7 @@ Vec3 getMiddle( Entity @ent )
 
 bool isFastPlant()
 {
-	uint maxTime = FAST_PLANT_TIME * 1000 + int( cvarExplodeTime.value * 1000 );
+	int64 maxTime = FAST_PLANT_TIME * 1000 + int( cvarExplodeTime.value * 1000 );
 	if( (levelTime - roundStartTime) < maxTime )
 		return true;
 
@@ -112,7 +112,7 @@ bool isFastPlant()
 
 bool isLastCallArm()
 {
-	uint minTime = ( int( cvarRoundTime.value ) - LAST_CALL_TIME ) * 1000;
+	int64 minTime = ( int( cvarRoundTime.value ) - LAST_CALL_TIME ) * 1000;
 	if( levelTime > minTime )
 		return true;
 	else
@@ -121,7 +121,7 @@ bool isLastCallArm()
 
 bool isLastCallDefuse()
 {
-	uint minTime = ( int( cvarExplodeTime.value ) - LAST_CALL_TIME ) * 1000;
+	int64 minTime = ( int( cvarExplodeTime.value ) - LAST_CALL_TIME ) * 1000;
 	if( bombActionTime > minTime )
 		return true;
 	else
