@@ -471,7 +471,7 @@ class cPlayer
 
             if ( this.invisibilityEnabled )
             {
-                this.ent.skinNum = G_SkinIndex( "models/players/silverclaw/invisibility.skin" );
+                this.ent.skinNum = G_SkinIndex( "models/players/serena/invisibility.skin" );
             }
         }
     }
