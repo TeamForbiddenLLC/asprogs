@@ -92,7 +92,7 @@ cPlayerClass[] cPlayerClassInfos( PLAYERCLASS_TOTAL );
 void GENERIC_InitPlayerClasses()
 {
     // precache the runner invisibility skin
-    G_SkinIndex( "models/players/silverclaw/invisibility.skin" );
+    G_SkinIndex( "models/players/serena/invisibility.skin" );
 
     for ( int i = 0; i < maxClients; i++ )
         playerClasses[ i ] = PLAYERCLASS_GRUNT;
@@ -128,7 +128,7 @@ void GENERIC_InitPlayerClasses()
     cPlayerClassInfos[ PLAYERCLASS_RUNNER ].setup(
         "Runner",					// name
         PLAYERCLASS_RUNNER,
-        "$models/players/silverclaw",			// player model
+        "$models/players/serena",			// player model
         100,						// initial health
         0,						// initial armor
         350,						// speed
