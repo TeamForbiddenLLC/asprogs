@@ -102,10 +102,10 @@ void GENERIC_SetUpCountdown( bool respawnItems = true )
 String getModelSex( Client @ client ) {
   String model = client.getUserInfoKey( "model" );
   String sex = model;
-  if ( model == "bigvic" ) {
+  if ( model == "rufus" ) {
     sex = "male";
   }
-  else if ( model == "monada" ) {
+  else if ( model == "amber" ) {
     sex = "female";
   }
   return sex;
