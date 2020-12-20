@@ -99,46 +99,60 @@ void GENERIC_SetUpCountdown( bool respawnItems = true )
     G_AnnouncerSound( null, soundIndex, GS_MAX_TEAMS, false, null );
 }
 
+String getModelSex( Client @ client ) {
+  String model = client.getUserInfoKey( "model" );
+  String sex = model;
+  if ( model == "bigvic" ) {
+    sex = "male";
+  }
+  else if ( model == "monada" ) {
+    sex = "female";
+  }
+  return sex;
+}
+ 
 void GENERIC_SetUpMatch()
 {
-    int i, j;
+    int i, j, CHAN, rstartrandom;
     Entity @ent;
     Team @team;
-
+ 
     G_RemoveAllProjectiles();
     gametype.shootingDisabled = true;  // avoid shooting before "FIGHT!"
     gametype.readyAnnouncementEnabled = false;
     gametype.scoreAnnouncementEnabled = true;
     gametype.countdownEnabled = true;
-
+ 
     // clear player stats and scores, team scores and respawn clients in team lists
-
+ 
     for ( i = TEAM_PLAYERS; i < GS_MAX_TEAMS; i++ )
     {
         @team = @G_GetTeam( i );
         team.stats.clear();
-
+ 
         // respawn all clients inside the playing teams
         for ( j = 0; @team.ent( j ) != null; j++ )
         {
             @ent = @team.ent( j );
+			rstartrandom = int( brandom( 1.0, 20.0 ));
             ent.client.stats.clear(); // clear player scores & stats
             ent.client.respawn( false );
+			G_LocalSound( ent.client, CHAN_AUTO, G_SoundIndex( "sounds/players/" + getModelSex( ent.client ) + "/rstart_" + rstartrandom ) );
         }
     }
-
+ 
     // set items to be spawned with a delay
     G_Items_RespawnByType( IT_POWERUP, 0, brandom( 20, 40 ) );
     G_Items_RespawnByType( IT_ARMOR, 0, 10 );
     G_Items_RespawnByType( IT_HEALTH, HEALTH_MEGA, 15 );
     G_Items_RespawnByType( IT_HEALTH, HEALTH_ULTRA, 15 );
     G_RemoveDeadBodies();
-
+ 
     // Countdowns should be made entirely client side, because we now can
     int soundindex = G_SoundIndex( "sounds/announcer/countdown/fight0" + (1 + (rand() & 1)) );
     G_AnnouncerSound( null, soundindex, GS_MAX_TEAMS, false, null );
     G_CenterPrintMsg( null, "FIGHT!" );
-	
+ 
 	// now we can enable shooting
     gametype.shootingDisabled = false;
 }
