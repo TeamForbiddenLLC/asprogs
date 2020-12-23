@@ -429,7 +429,7 @@ void bombDefuse(array<Entity @> @nearby)
 
 		client.addAward( awardMsg );
 		if( lastCall )
-			client.addAward( "Last call defuse!" );
+			client.addAward( "Last second defuse!" );
 	}
 
 	G_PrintMsg( null, defuseMsg + " defused the bomb!\n" );
