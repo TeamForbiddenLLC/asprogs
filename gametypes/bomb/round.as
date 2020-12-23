@@ -264,8 +264,8 @@ void roundWonBy( int winner )
 			// ch :
 			cPlayer @player = @playerFromClient( @ent.client );
 			if( player.oneVS > ONEVS_AWARD_COUNT )
-				// ent.client.addMetaAward( "Clean The House!" );
-				ent.client.addAward( "Clean The House!" );
+				// ent.client.addMetaAward( "One Man Army!" );
+				ent.client.addAward( "One Man Army!" );
 			
 			// ch : add a round for alive players on this team
 			ent.client.stats.addRound();
