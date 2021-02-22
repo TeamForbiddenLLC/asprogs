@@ -107,7 +107,7 @@ class cTurret
         this.gunModelIndex = G_ModelIndex( "models/objects/turret/gun.md3" );
         this.flashModelIndex = G_ModelIndex( "models/objects/turret/flash.md3" );
 
-        this.fireSoundIndex = G_SoundIndex( "sounds/weapons/machinegun_fire" );
+        this.fireSoundIndex = G_SoundIndex( "sounds/weapons/machinegun_fire1" );
         this.moveSoundIndex = G_SoundIndex( "sounds/movers/elevator_move" );
     }
 
