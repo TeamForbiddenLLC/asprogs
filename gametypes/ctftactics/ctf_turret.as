@@ -119,7 +119,7 @@ class cTurret
         this.refireDelay = 200;
         this.minPITCH = -45;
         this.fireMode = AMMO_BULLETS;
-        this.fireSoundIndex = G_SoundIndex( "sounds/weapons/machinegun_fire" );
+        this.fireSoundIndex = G_SoundIndex( "sounds/weapons/machinegun_fire1" );
         this.moveSoundIndex = G_SoundIndex( "sounds/movers/elevator_move" );
         this.projectileSpeed = 1175; //  set up as for AMMO_ROCKETS
         this.splashRadius = 150; // set up as for AMMO_ROCKETS
